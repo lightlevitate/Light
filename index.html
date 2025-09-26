@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Light Walker - Cybersecurity Analyst</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+            color: #ffffff;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .profile-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #00d2ff, #3a7bd5, #00d2ff);
+            margin: 0 auto 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            font-weight: bold;
+            color: #0f0f23;
+            box-shadow: 0 10px 30px rgba(0, 210, 255, 0.3);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                box-shadow: 0 10px 30px rgba(0, 210, 255, 0.3);
+            }
+            to {
+                box-shadow: 0 15px 40px rgba(0, 210, 255, 0.6);
+            }
+        }
+
+        .name {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #00d2ff, #3a7bd5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .title {
+            font-size: 1.5rem;
+            color: #00ff88;
+            font-weight: 300;
+            margin-bottom: 1rem;
+        }
+
+        .tagline {
+            font-size: 1.1rem;
+            color: #b8b8b8;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 210, 255, 0.2);
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            color: #00d2ff;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card-title::before {
+            content: "🛡️";
+            font-size: 1.2rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .skill-card {
+            background: linear-gradient(135deg, rgba(0, 210, 255, 0.1), rgba(58, 123, 213, 0.1));
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            border: 1px solid rgba(0, 210, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: scale(1.05);
+            border-color: #00ff88;
+        }
+
+        .skill-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .skill-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-level {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(45deg, #00ff88, #00d2ff);
+            border-radius: 3px;
+            transition: width 2s ease;
+        }
+
+        .contact-section {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .contact-title {
+            font-size: 2rem;
+            color: #00d2ff;
+            margin-bottom: 2rem;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: linear-gradient(45deg, rgba(0, 255, 136, 0.2), rgba(0, 210, 255, 0.2));
+            border-radius: 50px;
+            text-decoration: none;
+            color: #ffffff;
+            border: 1px solid rgba(0, 255, 136, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .contact-link:hover {
+            background: linear-gradient(45deg, rgba(0, 255, 136, 0.4), rgba(0, 210, 255, 0.4));
+            transform: translateY(-2px);
+        }
+
+        .terminal {
+            background: #0a0a0a;
+            border-radius: 10px;
+            padding: 1rem;
+            font-family: 'Courier New', monospace;
+            margin-top: 2rem;
+            border: 1px solid #00ff88;
+        }
+
+        .terminal-header {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .terminal-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .red { background: #ff5f56; }
+        .yellow { background: #ffbd2e; }
+        .green { background: #27ca3f; }
+
+        .terminal-line {
+            color: #00ff88;
+            margin-bottom: 0.5rem;
+        }
+
+        .typing {
+            animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 3px solid #00ff88;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #00ff88; }
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .name {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="profile-image">LW</div>
+            <h1 class="name">Light Walker</h1>
+            <p class="title">Senior Cybersecurity Analyst</p>
+            <p class="tagline">Defending digital frontiers with cutting-edge threat intelligence and zero-trust security frameworks</p>
+        </header>
+
+        <div class="main-content">
+            <div class="card">
+                <h2 class="card-title">About Me</h2>
+                <p>Experienced cybersecurity professional specializing in advanced persistent threat (APT) hunting, incident response, and security architecture. I leverage machine learning algorithms and behavioral analytics to identify sophisticated attack vectors and maintain robust defense postures.</p>
+                <br>
+                <p>My expertise spans across SIEM orchestration, vulnerability assessment, penetration testing, and implementing comprehensive security frameworks including NIST, ISO 27001, and MITRE ATT&CK.</p>
+            </div>
+
+            <div class="card">
+                <h2 class="card-title">Mission Statement</h2>
+                <p>To architect resilient cybersecurity ecosystems that proactively neutralize emerging threats while ensuring business continuity. I specialize in transforming complex security challenges into streamlined, automated defense mechanisms.</p>
+                <br>
+                <p>Passionate about threat intelligence, red team exercises, and building next-generation SOC capabilities that stay ahead of the evolving threat landscape.</p>
+            </div>
+        </div>
+
+        <div class="skills-grid">
+            <div class="skill-card">
+                <div class="skill-icon">🔒</div>
+                <div class="skill-name">Threat Hunting</div>
+                <div class="skill-level">
+                    <div class="skill-progress" style="width: 95%"></div>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon">🛠️</div>
+                <div class="skill-name">Incident Response</div>
+                <div class="skill-level">
+                    <div class="skill-progress" style="width: 92%"></div>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon">🔍</div>
+                <div class="skill-name">Penetration Testing</div>
+                <div class="skill-level">
+                    <div class="skill-progress" style="width: 88%"></div>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon">⚡</div>
+                <div class="skill-name">SIEM/SOAR</div>
+                <div class="skill-level">
+                    <div class="skill-progress" style="width: 90%"></div>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon">🧠</div>
+                <div class="skill-name">Threat Intelligence</div>
+                <div class="skill-level">
+                    <div class="skill-progress" style="width: 94%"></div>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon">🔐</div>
+                <div class="skill-name">Zero Trust Architecture</div>
+                <div class="skill-level">
+                    <div class="skill-progress" style="width: 87%"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="terminal">
+            <div class="terminal-header">
+                <div class="terminal-dot red"></div>
+                <div class="terminal-dot yellow"></div>
+                <div class="terminal-dot green"></div>
+            </div>
+            <div class="terminal-line">root@security-ops:~# whoami</div>
+            <div class="terminal-line">Light Walker - Cybersecurity Analyst</div>
+            <div class="terminal-line">root@security-ops:~# cat /proc/expertise</div>
+            <div class="terminal-line">├── Advanced Persistent Threats (APT) Analysis</div>
+            <div class="terminal-line">├── Security Information Event Management (SIEM)</div>
+            <div class="terminal-line">├── Malware Analysis & Reverse Engineering</div>
+            <div class="terminal-line">├── Cloud Security Architecture (AWS/Azure)</div>
+            <div class="terminal-line">├── Digital Forensics & E-Discovery</div>
+            <div class="terminal-line">└── Security Automation & Orchestration</div>
+            <div class="terminal-line">root@security-ops:~# uptime</div>
+            <div class="terminal-line typing">System secure. All threats neutralized. Defense protocols active.</div>
+        </div>
+
+        <div class="contact-section">
+            <h2 class="contact-title">Connect & Collaborate</h2>
+            <div class="contact-links">
+                <a href="mailto:lightwalker@securemail.com" class="contact-link">
+                    📧 Secure Email
+                </a>
+                <a href="https://linkedin.com/in/lightwalker" class="contact-link">
+                    💼 LinkedIn
+                </a>
+                <a href="https://github.com/lightwalker" class="contact-link">
+                    💻 GitHub
+                </a>
+                <a href="https://twitter.com/lightwalker_sec" class="contact-link">
+                    🐦 Twitter
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add some interactive effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate skill bars
+            const skillBars = document.querySelectorAll('.skill-progress');
+            skillBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0%';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 500);
+            });
+
+            // Add typing effect to terminal
+            const typingElement = document.querySelector('.typing');
+            if (typingElement) {
+                const text = typingElement.textContent;
+                typingElement.textContent = '';
+                let i = 0;
+                const typeWriter = () => {
+                    if (i < text.length) {
+                        typingElement.textContent += text.charAt(i);
+                        i++;
+                        setTimeout(typeWriter, 100);
+                    }
+                };
+                setTimeout(typeWriter, 2000);
+            }
+        });
+    </script>
+</body>
+</html>
