@@ -3,6 +3,50 @@ document.addEventListener('DOMContentLoaded', function() {
     const navMenu = document.getElementById('nav-menu');
     const navLinks = document.querySelectorAll('.nav-link');
 
+// Reveal on scroll (expert-level minimal)
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+document.addEventListener('DOMContentLoaded', function() {
+    const revealObserver = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                obs.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12, rootMargin: '0px 0px -10% 0px' });
+
+    const revealTargets = document.querySelectorAll('.section-header, .about-content, .project-card, .projects-grid');
+    revealTargets.forEach(el => {
+        el.classList.add('reveal');
+        if (!prefersReducedMotion) revealObserver.observe(el); else el.classList.add('active');
+    });
+});
+
+// Lightweight parallax for hero
+(function() {
+    if (prefersReducedMotion) return;
+    const heroImage = document.querySelector('.hero-image');
+    if (!heroImage) return;
+    let lastY = window.pageYOffset;
+    let ticking = false;
+
+    function update() {
+        const y = lastY * 0.3;
+        heroImage.style.transform = `translateY(${y}px)`;
+        ticking = false;
+    }
+
+    function onScroll() {
+        lastY = window.pageYOffset;
+        if (!ticking) {
+            requestAnimationFrame(update);
+            ticking = true;
+        }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+})();
     navToggle.addEventListener('click', function() {
         navMenu.classList.toggle('active');
         navToggle.classList.toggle('active');
@@ -109,16 +153,3 @@ document.addEventListener('DOMContentLoaded', function() {
         image.style.background = gradients[index % gradients.length];
     });
 });
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-\
