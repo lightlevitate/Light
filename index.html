@@ -4,13 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Light's Portfolio</title>
+    <meta name="description" content="Security Analyst portfolio showcasing penetration testing, AI security research, and enterprise assessments.">
+    <meta property="og:title" content="Light's Portfolio">
+    <meta property="og:description" content="Penetration testing, AI security research, and enterprise assessments.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://media1.tenor.com/m/QvYW2PQhUVUAAAAd/black-reaper-kaneki.gif">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Light's Portfolio">
+    <meta name="twitter:description" content="Penetration testing, AI security research, and enterprise assessments.">
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <nav class="navbar" aria-label="Primary">
         <div class="nav-container">
             <div class="nav-logo">
                 <a href="#home">Light's Portfolio</a>
@@ -28,6 +37,7 @@
         </div>
     </nav>
 
+    <main id="main" role="main">
     <section id="home" class="hero">
         <div class="hero-container">
             <div class="hero-content">
@@ -102,7 +112,7 @@
             <div class="projects-grid">
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="https://media.tenor.com/7Cw1_Nsysn4AAAAM/black-reaper-kaneki.gif" alt="Enterprise Security Assessment" class="project-img">
+                        <img src="https://media.tenor.com/7Cw1_Nsysn4AAAAM/black-reaper-kaneki.gif" alt="Enterprise Security Assessment project image" class="project-img" loading="lazy">
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">Enterprise Security Assessment</h3>
@@ -116,7 +126,7 @@
 
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="https://media.tenor.com/Z1dKFII8Xb0AAAAM/black-reaper-tokyo-ghoul.gif" alt="AI System Jailbreaking" class="project-img">
+                        <img src="https://media.tenor.com/Z1dKFII8Xb0AAAAM/black-reaper-tokyo-ghoul.gif" alt="AI System Jailbreaking project image" class="project-img" loading="lazy">
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">AI System Jailbreaking</h3>
@@ -130,7 +140,7 @@
 
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="https://media.tenor.com/5tPbHx7bIN4AAAAM/red-black-anime-flower-dhruvtokyoghoul7169.gif" alt="Web Application Security" class="project-img project-img-stretch">
+                        <img src="https://media.tenor.com/5tPbHx7bIN4AAAAM/red-black-anime-flower-dhruvtokyoghoul7169.gif" alt="Web Application Security project image" class="project-img project-img-stretch" loading="lazy">
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">Web Application Security</h3>
@@ -144,7 +154,7 @@
 
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="https://gifdb.com/images/high/ken-kaneki-anime-blood-tokyo-ghoul-63cd2x7vbpmwgyu4.gif" alt="Network Infrastructure Testing" class="project-img">
+                        <img src="https://gifdb.com/images/high/ken-kaneki-anime-blood-tokyo-ghoul-63cd2x7vbpmwgyu4.gif" alt="Network Infrastructure Testing project image" class="project-img" loading="lazy">
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">Network Infrastructure Testing</h3>
@@ -161,7 +171,8 @@
 
 
 
-    <footer class="footer">
+    </main>
+    <footer class="footer" role="contentinfo">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-text">
@@ -177,6 +188,6 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 </html>
